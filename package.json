@@ -1,0 +1,44 @@
+{
+  "name": "mongoose-models",
+  "version": "1.0.1",
+  "description": "",
+  "scripts": {
+    "build": "rm -rf ./lib && tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.types.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build && git add lib"
+    }
+  },
+  "author": "N Soluções",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^9.0.11",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "mongoose": "^6.8.4",
+    "mongoose-models": "file:"
+  },
+  "main": "lib/cjs/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    "types": "./lib/types/index.d.ts",
+    "browser": {
+      "require": "./lib/cjs/index.js",
+      "import": "./lib/esm/index.js"
+    },
+    "deno": {
+      "require": "./lib/cjs/index.js",
+      "import": "./lib/esm/index.js"
+    },
+    "worker": {
+      "require": "./lib/cjs/index.js",
+      "import": "./lib/esm/index.js"
+    },
+    "default": {
+      "require": "./lib/cjs/index.js",
+      "import": "./lib/esm/index.js"
+    }
+  }
+}
